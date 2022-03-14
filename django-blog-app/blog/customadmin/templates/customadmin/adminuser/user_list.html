@@ -13,15 +13,6 @@
     {% include "customadmin/includes/list_header_card.html" with title="Create a new user" subtitle="Create a new user and assign with individual or group permissions." show_button=True %}
 
     <div class="ibox float-e-margins">
-        {% comment %} <div class="ibox-title">
-            <div class="ibox-tools">
-                {% if perms.users.add_user %}
-                <!-- <a href="{% url opts|admin_urlname:'create' %}" class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> Add {{ opts.verbose_name|capfirst }}</a> -->
-                {% endif %}
-            </div>
-        </div> {% endcomment %}
-
-
         <div class="ibox-content">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover" id="{{ opts.model_name }}-table">
@@ -56,7 +47,6 @@
                             <td>{{ o.last_name }}</td>
                             <td>{{ o.username }}</td>
                             {% if o.profile.picture|length > 0 %}
-                            {{o.profile.picture.url}}
                             <td height="80px" width="180px"><img src="{{o.profile.picture.url}}" alt="" height="80x" width="100%" srcset=""></td>
                             {% else %}
                             <td>No image</td>
@@ -88,3 +78,13 @@
     });
 </script>
 {% endblock %}
+
+
+<!-- Commented -->
+{% comment %} <div class="ibox-title">
+    <div class="ibox-tools">
+        {% if perms.users.add_user %}
+        <!-- <a href="{% url opts|admin_urlname:'create' %}" class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> Add {{ opts.verbose_name|capfirst }}</a> -->
+        {% endif %}
+    </div>
+</div> {% endcomment %}

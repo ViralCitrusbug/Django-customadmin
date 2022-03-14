@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.urls import path
 from . import views
 
@@ -19,6 +20,20 @@ urlpatterns = [
     # path("export_user_csv", views.export_user_csv, name="export_user_csv"),
 ]
 
+urlpatterns += [
+    path('posts/',views.PostListView.as_view(),name='post-list'),
+    path('posts/<int:pk>/detail/',views.PostDetailView.as_view(),name="post-detailview"),
+    path('posts/<int:pk>/delete/',views.PostDeleteView.as_view(),name="post-delete"),
+    path('posts/<int:pk>/update/',views.PostUpdateView.as_view(),name="post-update"),
+]
+
+urlpatterns += [
+    path('profiles/',views.ProfileListView.as_view(),name="profile-list"),
+    path('profiles/<int:pk>/detail/',views.ProfileDetailView.as_view(),name="profile-detailview"),
+    path('profiles/<int:pk>/update',views.ProfileUpdateView.as_view(),name="profile-update"),
+    path('profiles/<int:pk>/delete',views.ProfileDeleteView.as_view(),name="profile-delete")
+]
+    
 # urlpatterns +=[
 # #------------------------------------------------------------------------------------------------------
 #     #Testimonial

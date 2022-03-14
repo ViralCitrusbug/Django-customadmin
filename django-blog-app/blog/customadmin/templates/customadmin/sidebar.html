@@ -44,6 +44,18 @@
                     <span class="nav-label">Users</span>
                 </a>
             </li>
+            <li {% if 'posts/' in request.path %}class="active" {% endif %}>
+                <a href="{% url 'customadmin:post-list' %}">
+                    <i class="fa fa-user fa-fw fa-2x"></i>
+                    <span class="nav-label">Posts</span>
+                </a>
+            </li>
+            <li {% if 'profiles/' in request.path %}class="active" {% endif %}>
+                <a href="{% url 'customadmin:profile-list' %}">
+                    <i class="fa fa-user fa-fw fa-2x"></i>
+                    <span class="nav-label">Profile</span>
+                </a>
+            </li>
             {% endif %}
         </ul>
 

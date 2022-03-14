@@ -16,3 +16,6 @@ from .user import UserCreationForm, UserChangeForm
 # from .purchased_product import PurchasedProductCreationForm, PurchasedProductChangeForm
 # from .service_booking import BookedServiceChangeForm, BookedServiceCreationForm
 # from .time_slots import TimeSlotChangeForm, TimeSlotCreationForm
+
+from .post import *
+from .profile import *

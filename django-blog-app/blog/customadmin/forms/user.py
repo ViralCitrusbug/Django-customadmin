@@ -22,6 +22,7 @@ class UserCreationForm(forms.ModelForm):
             "first_name",
             "last_name",
             "username",
+            "is_active"
         ]
 
     def __init__(self,*args, **kwargs):
@@ -72,6 +73,7 @@ class UserChangeForm(forms.ModelForm):
             "first_name",
             "last_name",
             "username",
+            "is_active"
         ]
 
     def clean(self):

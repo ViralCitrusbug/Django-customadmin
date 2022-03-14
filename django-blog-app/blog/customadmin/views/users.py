@@ -62,6 +62,9 @@ class UserUpdateView(MyUpdateView):
     form_class = UserChangeForm
     template_name = 'customadmin/adminuser/user_form_update.html'
 
+    def get_success_url(self):
+        return reverse("customadmin:user-list")
+
 class UserDeleteView(MyDeleteView):
     model = User
     template_name = 'customadmin/confirm_delete.html'
