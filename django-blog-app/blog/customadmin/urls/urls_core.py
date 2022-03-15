@@ -22,9 +22,12 @@ urlpatterns = [
 
 urlpatterns += [
     path('posts/',views.PostListView.as_view(),name='post-list'),
+    path('posts/create',views.PostCreateView.as_view(),name="post-create"),
     path('posts/<int:pk>/detail/',views.PostDetailView.as_view(),name="post-detailview"),
     path('posts/<int:pk>/delete/',views.PostDeleteView.as_view(),name="post-delete"),
     path('posts/<int:pk>/update/',views.PostUpdateView.as_view(),name="post-update"),
+    path('posts/<int:pk>/archive/',views.PostToArchive.as_view(),name="post-archive"),
+
 ]
 
 urlpatterns += [
@@ -32,6 +35,14 @@ urlpatterns += [
     path('profiles/<int:pk>/detail/',views.ProfileDetailView.as_view(),name="profile-detailview"),
     path('profiles/<int:pk>/update',views.ProfileUpdateView.as_view(),name="profile-update"),
     path('profiles/<int:pk>/delete',views.ProfileDeleteView.as_view(),name="profile-delete")
+]
+
+urlpatterns += [
+    path('categories/',views.CategoryListView.as_view(),name='category-list'),
+    path('categories/create',views.CategoryCreateView.as_view(),name='category-create'),
+    path('categories/<int:pk>/detail/',views.CategoryDetailView.as_view(),name='category-detailview'),
+    path('categories/<int:pk>/update',views.CategoryUpdateView.as_view(),name='category-update'),
+    path('categories/<int:pk>/delete',views.CategoryDeleteView.as_view(),name='category-delete')
 ]
     
 # urlpatterns +=[

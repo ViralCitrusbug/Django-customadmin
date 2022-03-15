@@ -19,3 +19,4 @@ from .user import UserCreationForm, UserChangeForm
 
 from .post import *
 from .profile import *
+from .category import *

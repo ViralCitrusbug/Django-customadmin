@@ -1,3 +1,4 @@
+from xml.sax.saxutils import prepare_input_source
 from customadmin.mixins import HasPermissionsMixin
 from customadmin.views.generic import (
     MyCreateView,
@@ -44,6 +45,8 @@ class UserCreateView(MyCreateView):
     template_name = 'customadmin/adminuser/user_form.html'
 
     def get_form_kwargs(self) :
+        print("**********************")
+        print(super().get_form_kwargs)
         return super().get_form_kwargs()
     
     def get_success_url(self):

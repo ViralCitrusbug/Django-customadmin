@@ -56,6 +56,12 @@
                     <span class="nav-label">Profile</span>
                 </a>
             </li>
+            <li {% if 'categories/' in request.path %}class="active" {% endif %}>
+                <a href="{% url 'customadmin:category-list' %}">
+                    <i class="fa fa-user fa-fw fa-2x"></i>
+                    <span class="nav-label">Category</span>
+                </a>
+            </li>
             {% endif %}
         </ul>
 

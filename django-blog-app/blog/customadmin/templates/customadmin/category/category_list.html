@@ -1,0 +1,51 @@
+{% extends 'customadmin/change_list.html' %}
+{% load static %}
+{% load admin_extras %}
+{% load misc_filters %}
+{% load i18n %}
+
+
+{% block page_content %}
+    {% csrf_token %}
+
+
+
+    <div class="float-right lead my-3">
+        <a href="{% url 'customadmin:category-create' %}" class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> New Category</a>
+      </div>
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="{{ opts.model_name }}-table">
+                    <thead>
+                        <tr>
+                            <th class="my-2">Category Name</th>
+                            
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Category Name</th>
+                            
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for o in category %}
+                        <tr>
+                            <td class="my-2 ">{{ o.name }}</td>
+                            <td class="my-2 ">
+                                {% include "customadmin/partials/list_row_more_actions.html" %}
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>  
+
+{% endblock %}
+
+

@@ -7,4 +7,4 @@
 # from .cart import ProductCart, ServiceCart
 # from .transactions import TransactionDetail
 # from django.contrib.auth.models import User
-from blogapp.models import Post,Profile
+from blogapp.models import Post,Profile,Category

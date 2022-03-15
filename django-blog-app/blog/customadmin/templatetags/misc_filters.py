@@ -71,6 +71,8 @@ def admin_urlname(value, arg):
         pattern = "%s:%s-%s" % ('customadmin', 'post', arg)
     if value.model_name == 'profile':
         pattern = "%s:%s-%s" % ('customadmin', 'profile', arg)
+    if value.model_name == 'category':
+        pattern = "%s:%s-%s" % ('customadmin', 'category', arg)
     # print('---------------------------------------------------------------------------------',pattern)
     return pattern
 

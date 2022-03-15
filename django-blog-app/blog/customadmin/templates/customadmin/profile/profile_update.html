@@ -20,19 +20,19 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {{ form.user }}
+                        {{ form.user|as_crispy_field }}
                     </div>
                     <div class="col-sm-6">
+                        {% if profile.picture.url|length > 0 %}
                       <img src="{{profile.picture.url}}" alt="">
-                      {{form.picture}}
+                      {% endif %}
+                      {{form.picture|as_crispy_field}}
                     </div>
                 </div>
 
             </div>
-            <!-- /ibox-content -->
 
         </div>
-        <!-- /ibox --> 
 
        
       
