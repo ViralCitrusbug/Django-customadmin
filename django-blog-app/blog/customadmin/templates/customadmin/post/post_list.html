@@ -30,7 +30,7 @@
                     <tbody>
                         {% for o in post %}
                         
-                        {% if not o.soft_delete %}
+                        
                         <tr>
                             <td>{{ o.title }}</td>
                             <td>{{ o.user }}</td>
@@ -56,39 +56,7 @@
                                 </a>
                             </td>
                         </tr>   
-                        {% endif %}
-                        {% endfor %}
-
                         
-
-                        {% for o in post %}
-                            {% if o.soft_delete %}
-                            <tr>
-                                <td>{{ o.title }}</td>
-                                <td>{{ o.user }}</td>
-                                <td>{{ o.category }}</td>
-                                <td>{{ o.content|slice:"0:100" }}</td>
-                                {% if o.post_image.url|length > 0 %}
-                                {{o.profile.picture.url}}
-                                <td height="80px" width="180px"><a href="/customadmin/posts/{{o.id}}/detail">
-                                    <img src="{{o.post_image.url}}" width="180px" height="80x" alt="">
-                                </a></td>
-                                {% else %}
-                                <td>No image</td>
-                                {% endif %}
-                                <td>{% show_check o.soft_delete %}</td>
-                                <td class="row-actions">
-                                </td>
-                                <td class="row-actions">
-                                    {% include "customadmin/partials/list_row_more_actions.html" %}
-                                </td>
-                                <td class="row-actions">
-                                    <a href="{% url 'customadmin:post-archive' pk=o.pk %}">
-                                        <button class="btn btn-primary">Archive</button>
-                                    </a>
-                                </td>
-                            </tr>
-                            {% endif %} 
                         {% endfor %}
                     </tbody>
                         
