@@ -1,4 +1,5 @@
 from xml.sax.saxutils import prepare_input_source
+from blogapp.models import Post
 from customadmin.mixins import HasPermissionsMixin
 from customadmin.views.generic import (
     MyCreateView,
@@ -27,6 +28,8 @@ class IndexView(LoginRequiredMixin,TemplateView):
 
     def get(self, request):
         self.context['user_count']=User.objects.all().exclude(is_staff=True).count()
+        self.context['all_post'] = Post.objects.all().count()
+        self.context['active_post'] = Post.objects.filter(soft_delete=False).count()
         return render(request, self.template_name, self.context)
 
 
