@@ -44,6 +44,14 @@ urlpatterns += [
     path('categories/<int:pk>/update',views.CategoryUpdateView.as_view(),name='category-update'),
     path('categories/<int:pk>/delete',views.CategoryDeleteView.as_view(),name='category-delete')
 ]
+
+urlpatterns += [
+    path('comments/',views.CommentListView.as_view(),name='comment-list'),
+    path('comments/create',views.CommentCreateView.as_view(),name='comment-create'),
+    path('comments/<int:pk>/detail/',views.CommentDetailView.as_view(),name='comment-detailview'),
+    path('comments/<int:pk>/update',views.CommentUpdateView.as_view(),name='comment-update'),
+    path('comments/<int:pk>/delete',views.CommentDeleteView.as_view(),name='comment-delete'),
+]
     
 # urlpatterns +=[
 # #------------------------------------------------------------------------------------------------------

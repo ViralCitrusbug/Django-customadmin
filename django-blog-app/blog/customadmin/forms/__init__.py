@@ -12,6 +12,7 @@
 # from .number_code import NumberCodeCreationForm, NumberCodeChangeForm
 # from .product import ShopProductChangeForm, ShopProductCreationForm
 # from .service import ServiceChangeForm, ServiceCreationForm
+from multiprocessing.spawn import import_main_path
 from .user import UserCreationForm, UserChangeForm
 # from .purchased_product import PurchasedProductCreationForm, PurchasedProductChangeForm
 # from .service_booking import BookedServiceChangeForm, BookedServiceCreationForm
@@ -20,3 +21,5 @@ from .user import UserCreationForm, UserChangeForm
 from .post import *
 from .profile import *
 from .category import *
+from .auth import *
+from .comment import *

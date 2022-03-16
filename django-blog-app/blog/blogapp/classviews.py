@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password,make_password
 from django.core.paginator import Paginator
 from django.db.models import Q
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,reverse
 from django.views.generic import ListView,DetailView,CreateView,View,UpdateView,DeleteView
 from .models import Post,Category, Profile,Image
 from .formviews import *
@@ -21,7 +21,7 @@ class PostList(View):
                 post = Post.objects.filter(Q(title__icontains=search) | Q(content__icontains=search))
         if category_id:
             post = Post.objects.filter(category=category_id) 
-        post_per_page = 3
+        post_per_page = 10
         paginator = Paginator(post,post_per_page,orphans=1)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -71,7 +71,9 @@ class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['picture']
     template_name = 'class/profile.html'
-    success_url = "/"
+    
+    def get_success_url(self) -> str:
+        return reverse('blogapp:home')
 
 # class CreateUser(CreateView):
 #     model = User
@@ -217,7 +219,7 @@ class Login(View):
 class Logout(View):
     def get(self,request):
         auth.logout(request)
-        return redirect('login')
+        return redirect('blogapp:login')
 
 class PostByCategory(View):
     def get(self,request,category):

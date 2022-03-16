@@ -45,6 +45,35 @@
                            
                     </tbody>
                 </table>
+                <table class="table table-striped table-bordered table-hover" id="{{ opts.model_name }}-table">
+                    <h3>Comments on This Post</h3>
+                    
+                        <thead>
+                            <tr>
+                                
+                                <th>User</th>
+                                <th>Comment</th>
+                                <th>upload_on</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                               
+                                <th>User</th>
+                                <th>Comment</th>
+                                <th>upload_on</th>
+                            </tr>
+                        </tfoot>
+                        {% for o in post_detail.comment_set.all %}
+                            <tr class="text-left">
+                                <td>{{o.comment}}</td>
+                                <td>{{o.user}}</td>
+                                <td>{{o.upload_on}}</td>
+                            </tr>
+                        {% endfor %}
+                           
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

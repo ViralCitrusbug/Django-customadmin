@@ -40,7 +40,7 @@ class UserListView(MyListView):
     ordering = ["id"]
 
     def get_queryset(self):
-        return self.model.objects.exclude(is_staff=True)
+        return self.model.objects.filter(is_staff=False)
 
 class UserCreateView(MyCreateView):
     model = User

@@ -62,6 +62,12 @@
                     <span class="nav-label">Category</span>
                 </a>
             </li>
+            <li {% if 'comments/' in request.path %}class="active" {% endif %}>
+                <a href="{% url 'customadmin:comment-list' %}">
+                    <i class="fa fa-user fa-fw fa-2x"></i>
+                    <span class="nav-label">Comments</span>
+                </a>
+            </li>
             {% endif %}
         </ul>
 

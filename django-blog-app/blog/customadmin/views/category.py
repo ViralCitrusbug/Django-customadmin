@@ -21,7 +21,6 @@ class CategoryCreateView(MyCreateView):
         return super().get_form_kwargs()
 
     def get_success_url(self):
-        print("In Success Url")
         return reverse('customadmin:category-list')
 
 class CategoryDetailView(MyDetailView):
