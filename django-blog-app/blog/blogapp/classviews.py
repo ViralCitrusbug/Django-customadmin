@@ -10,9 +10,10 @@ from .formviews import *
 from .views import category_list
 from . models import Comment
 import re
+
 class PostList(View):
     def get(self,request):
-        post = Post.objects.filter(soft_delete=False).order_by('-published_date')
+        post = Post.objects.filter(soft_delete=False).exclude(user__is_active=False).order_by('-published_date')
         category_id = request.GET.get('category')
         search = request.GET.get('search')
 
@@ -20,7 +21,7 @@ class PostList(View):
             if search:
                 post = Post.objects.filter(Q(title__icontains=search) | Q(content__icontains=search))
         if category_id:
-            post = Post.objects.filter(category=category_id) 
+            post = Post.objects.filter(category__icontains=category_id) 
         post_per_page = 10
         paginator = Paginator(post,post_per_page,orphans=1)
         page_number = request.GET.get('page')
@@ -223,7 +224,7 @@ class Logout(View):
 
 class PostByCategory(View):
     def get(self,request,category):
-        category = Category.objects.filter(name=category)
+        category = Category.objects.filter(name__icontains=category)
         context = {
             "cat":category
         }

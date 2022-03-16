@@ -43,7 +43,7 @@ class Comment(models.Model):
     upload_on = models.DateTimeField(default=now)  
 
     def __str__(self) -> str:
-        return f"{self.user.username}\t{self.comment[0:10]}..."
+        return f"{self.user.username}:-\t{self.comment[0:10]}..."
 
 @receiver(post_save,sender=User)
 def create_auth_token(sender,instance,created,**kwargs):
