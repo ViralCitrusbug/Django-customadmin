@@ -49,9 +49,9 @@ class HasPermissionsMixin(object):
 
     def has_add_permission(self, request):
 
-        print('-------------------has_add_permission----------------')
-        print('-------------------has_add_permission----------------')
-        print('-------------------has_add_permission----------------')
+        # print('-------------------has_add_permission----------------')
+        # print('-------------------has_add_permission----------------')
+        # print('-------------------has_add_permission----------------')
 
 
         """

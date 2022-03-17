@@ -35,12 +35,14 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        
                         <tr>
                             <td>{{comment.post.id}}</td>
                             <td>{{comment.user}}</td>
                             <td>{{comment.comment}}</td>
                             <td>{{comment.upload_on}}</td>
                         </tr>
+                     
                     </tbody>
                 </table>
                 <table class="table table-striped table-bordered table-hover" id="{{ opts.model_name }}-table">
@@ -63,13 +65,16 @@
                         </tr>
                     </tfoot>
                     <tbody>
+                        
                         {% for o in comment.post.comment_set.all %}
+                        {% if o.id != comment.id %}
                         <tr>
                             <td>{{o.post.id}}</td>
                             <td>{{o.user}}</td>
                             <td>{{o.comment}}</td>
                             <td>{{o.upload_on}}</td>
                         </tr>
+                        {% endif %}
                         {% endfor %}
                     </tbody>
                 </table>

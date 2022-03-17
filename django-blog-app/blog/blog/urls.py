@@ -19,6 +19,9 @@ from django.conf.urls.static import static
 from django.urls import path,include
 from blogapp.token import CustomAuthToken
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.schemas import get_schema_view
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +30,30 @@ urlpatterns = [
     path('get-token',CustomAuthToken.as_view())
     # path('get-token',obtain_auth_token)
 ]
+    ## SWAGGER
+
+urlpatterns += [
+    # ...
+    # Route TemplateView to serve Swagger UI template.
+    #   * Provide `extra_context` with view name of `SchemaView`.
+    path('swagger-ui/', TemplateView.as_view(
+        template_name='swagger_ui.html',
+        extra_context={'schema_url':'openapi-schema'}
+    ), name='api_doc'),
+]
+urlpatterns += [
+    # ...
+    # Use the `get_schema_view()` helper to add a `SchemaView` to project URLs.
+    #   * `title` and `description` parameters are passed to `SchemaGenerator`.
+    #   * Provide view name for use with `reverse()`.
+    path('openapi', get_schema_view(
+        title="Your Project",
+        description="API for all things …",
+        version="1.0.0"
+    ), name='openapi-schema'),
+    # ...
+]
+
+
 
 urlpatterns += static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)

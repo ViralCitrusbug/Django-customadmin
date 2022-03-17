@@ -1,3 +1,4 @@
+from customadmin.forms import comment
 from customadmin.forms.comment import CommentCreateForm
 from ..models import Comment
 from .generic import MyCreateView, MyDeleteView, MyListView,MyDetailView, MyUpdateView
@@ -14,7 +15,6 @@ class CommentDetailView(MyDetailView):
     model = Comment
     template_name = 'customadmin/comment/comment_detail.html'
     context_object_name = 'comment'
-
 class CommentUpdateView(MyUpdateView):
     model = Comment
     template_name = 'customadmin/comment/comment_update.html'

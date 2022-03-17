@@ -1,7 +1,10 @@
 from msilib.schema import Class
 from django.urls import path
-from . import views,classviews,serialize_view,serialize_classview,generic_serialize_view
+from django.views.generic import TemplateView
 
+
+
+from . import views,classviews,serialize_view,serialize_classview,generic_serialize_view
 app_name = 'blogapp'
 
 urlpatterns = [

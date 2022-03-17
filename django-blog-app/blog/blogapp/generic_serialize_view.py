@@ -8,13 +8,14 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly,IsAdminUser    
 from rest_framework.filters import SearchFilter
 from rest_framework.generics import ListAPIView
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class PostListView(mixins.ListModelMixin,mixins.CreateModelMixin,generics.GenericAPIView):
 
     queryset = Post.objects.filter(soft_delete=False)
     serializer_class = PostSerializers
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
 
